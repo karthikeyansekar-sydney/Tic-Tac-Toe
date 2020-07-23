@@ -1,13 +1,11 @@
 const circle_class = 'playerO';
 const x_class = 'playerX';
-let current_class;
 let currentPlayer = 'playerX';
-
-/* Retrieves all the div tag */
 const restartButton = document.getElementById('restartButton');
 const restartBtn = document.getElementById('restartBtn');
 const winningMessageTextElement = document.getElementById('winningMessageText');
 const winningMessageElement = document.getElementById('winningMessage');
+/* Retrieves all the div tag */
 const squares = document.querySelectorAll('.grid-container div');
 const squareArray = Array.from(squares);
 
@@ -61,12 +59,7 @@ const checkWin = (currentClass) =>{
   })
 };
 
-
 document.addEventListener('DOMContentLoaded', () => {
-  /* Here we are displaying the person who made the move */
-  const playerDisplay = document.querySelector('#player');
-  playerDisplay.innerHTML = currentPlayer;
-
 /* Here forEach method Iterates through all the nine div tags with parent class grid-container */
 /* array.forEach method accepts three arguments (value,index,arr) */
 
@@ -87,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
       squares[index].classList.add('playerO');
     }
 
-      current_class =  squareArray[index].classList.contains(x_class) ? x_class : circle_class ;
+      let current_class =  squareArray[index].classList.contains(x_class) ? x_class : circle_class ;
       if(checkWin(current_class))
       {
         endGame(false,currentPlayer);
@@ -96,5 +89,8 @@ document.addEventListener('DOMContentLoaded', () => {
     endGame(true)
   }
   currentPlayer = (current_class === x_class ? circle_class : x_class);
+  /* Here we are displaying the person who made the move */
+  const playerDisplay = document.querySelector('#player');
+  playerDisplay.innerHTML = `${currentPlayer}'s turn`;
     }
 });

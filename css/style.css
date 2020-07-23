@@ -94,12 +94,12 @@ h1, p, h3 {
 }
 
 .playerX {
-  background-image: url('../cross-2.png');
+  background-image: url('../images/cross.png');
   background-repeat: no-repeat;
 }
 
 .playerO {
-  background-image: url('../circle-2.png');
+  background-image: url('../images/circle.png');
   background-repeat: no-repeat;
 }
 
