@@ -6,7 +6,6 @@
 	<title>Tic Tac Toe</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<script src="js/jquery.js"></script>
-	<script type="text/javascript" src="js/main.js"></script>
 
 	<link rel="stylesheet" href="css/style.css">
 
@@ -20,23 +19,47 @@
 
 		<p> <span class="pone">"I"</span> is for Player One and <span class="ptwo">"U"</span> is for player two</p>
 		<div class="scoreboard">
-			<div class="firstScore" id="firstPlayerScore">Player 1: 0</div>
-
-			<div class="secondScore" id="secondPlayerScore">Player 2: 0</div>
+			<div class="Score"> <span id="firstPlayerScore">Player 1: 0 <span /> <span id="secondPlayerScore">Player 2: 0 <span /></div>
 		</div>
+		<div>
+			<h3 id="player">playerX</h3>
+
+		</div>
+
+	</div>
+
+
+	<div id="animate">
+		<img class="anim" src="images/joker-card.jpg" alt="">
+
 	</div>
 	<div class="grid-container">
-		<div>1</div>
-		<div>2</div>
-		<div>3</div>
-		<div>4</div>
-		<div>5</div>
-		<div>6</div>
-		<div>7</div>
-		<div>8</div>
-		<div>9</div>
-	</div>
+		<div class="playCards">
+		</div>
+		<div class="playCards">
+		</div>
+		<div class="playCards">
+		</div>
+		<div class="playCards">
+		</div>
+		<div class="playCards">
+		</div>
+		<div class="playCards">
+		</div>
+		<div class="playCards">
+		</div>
+		<div class="playCards">
+		</div>
+		<div class="playCards">
+		</div>
 
+	</div>
+	<div id="animate">
+		<img class="anim" src="images/joker-card.jpg" alt="">
+
+	</div>
+	<script type="text/javascript" src="js/main.js"></script>
+	
 </body>
 
 </html>
