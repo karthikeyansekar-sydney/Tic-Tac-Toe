@@ -121,8 +121,9 @@ h1, p, h3 {
 .restartButton {
   font-size: 2rem;
   background-color: white;
-  border: 1px solid black;
-  padding: .25em .5em;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: .15em .5em;
   cursor: pointer;
 }
 
@@ -139,4 +140,10 @@ h1, p, h3 {
 #restart {
   display: flex;
   justify-content: center;
+}
+
+span{
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
 }

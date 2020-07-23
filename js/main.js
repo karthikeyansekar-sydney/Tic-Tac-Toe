@@ -1,29 +1,28 @@
 const circle_class = 'playerO';
 const x_class = 'playerX';
-let y;
-/* Retrieves all the div tag */
-const restartButton = document.getElementById('restartButton')
+let current_class;
+let currentPlayer = 'playerX';
 
-const squ = document.getElementById('grid-container');
+/* Retrieves all the div tag */
+const restartButton = document.getElementById('restartButton');
+const restartBtn = document.getElementById('restartBtn');
 const winningMessageTextElement = document.getElementById('winningMessageText');
 const winningMessageElement = document.getElementById('winningMessage');
 const squares = document.querySelectorAll('.grid-container div');
 const squareArray = Array.from(squares);
-
 
 const resetGame = () => {
   squares.forEach(square => {
   square.classList.remove(x_class);
   square.classList.remove(circle_class);
   square.classList.add('playCards');
-    //cell.removeEventListener('click', handleClick)
-    //cell.addEventListener('click', handleClick, { once: true })
+  currentPlayer = 'playerX'
   })
-  winningMessageElement.classList.remove('show')
+  winningMessageElement.classList.remove('show');
 };
 
 restartButton.addEventListener('click', resetGame);
-
+restartBtn.addEventListener('click', resetGame);
 
 const endGame = (draw, currentPlayer) => {
   if(draw){
@@ -52,7 +51,7 @@ const winningCombinations = [
   [2, 4, 6]
 ];
 
-function checkWin(currentClass){
+const checkWin = (currentClass) =>{
   /* array.some returns true if any of the values in the loop is true */
   return winningCombinations.some(combination => {
     /* array.every method To check if the every element have same class */
@@ -60,9 +59,10 @@ function checkWin(currentClass){
       return squares[index].classList.contains(currentClass);
     })
   })
-}
+};
+
+
 document.addEventListener('DOMContentLoaded', () => {
-  let currentPlayer = 'playerX';
   /* Here we are displaying the person who made the move */
   const playerDisplay = document.querySelector('#player');
   playerDisplay.innerHTML = currentPlayer;
@@ -83,38 +83,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if(currentPlayer === 'playerX') {
       squares[index].classList.add('playerX');
-      //const currentClass = circleTurn ? circleClass : x_class;
-
-    //  currentPlayer = 'playerO';
     } else {
       squares[index].classList.add('playerO');
-    //  currentPlayer = 'playerX';
     }
-    if (squareArray[index].classList.contains(x_class)) /*It returns false */
-    {
-      y = x_class;
-      if(checkWin(y))
+
+      current_class =  squareArray[index].classList.contains(x_class) ? x_class : circle_class ;
+      if(checkWin(current_class))
       {
         endGame(false,currentPlayer);
       }
       else if (isDraw()) {
     endGame(true)
   }
-      currentPlayer = 'playerO';
+  currentPlayer = (current_class === x_class ? circle_class : x_class);
     }
-    else
-    {
-      y= circle_class;
-      if(checkWin(y))
-      {
-        endGame(false,currentPlayer);
-      }
-      else if (isDraw()) {
-    endGame(true)
-  }
-      currentPlayer = 'playerX';
-
-    }
-
-  }
-})
+});
