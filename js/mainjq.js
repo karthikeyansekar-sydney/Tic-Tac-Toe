@@ -4,6 +4,7 @@ const x_class = 'playerX';
 let currentPlayer = 'playerX';
 /* Retrieves all the div tag */
 const squares = $('.playCards');
+/* converting into Array and storing it in squareArray */
 const squareArray = Array.from(squares);
 
 const resetGame = () => {
@@ -65,7 +66,6 @@ const checkWin = (currentClass) =>{
   })
 
   function clickOutcome(e) {
-    /* converting into Array and storing it in squareArray */
     const index = squareArray.indexOf(e.target);
 
     var element = e.target;
@@ -86,7 +86,7 @@ const checkWin = (currentClass) =>{
     endGame(true)
   }
   currentPlayer = (current_class === x_class ? circle_class : x_class);
-  /* Here we are displaying the person who made the move */
+  /* Here we are displaying the person who is about to make next move */
   $('#player').text(`${currentPlayer}'s turn`);
     }
 });
