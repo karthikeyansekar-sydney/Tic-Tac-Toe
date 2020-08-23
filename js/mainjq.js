@@ -1,4 +1,14 @@
 $(document).ready(function() {
+  const winningCombinations = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+  ];
 const circle_class = 'playerO';
 const x_class = 'playerX';
 let currentPlayer = 'playerX';
@@ -31,22 +41,9 @@ $('#winningMessageText').text("Draw");
 
 const isDraw = () => {
   return squareArray.every(cell => {
-    return $(cell).hasClass(x_class) ||
-     $(cell).hasClass(circle_class)
-
+    return $(cell).hasClass(x_class) || $(cell).hasClass(circle_class);
   })
 };
-
-const winningCombinations = [
-  [0, 1, 2],
-  [3, 4, 5],
-  [6, 7, 8],
-  [0, 3, 6],
-  [1, 4, 7],
-  [2, 5, 8],
-  [0, 4, 8],
-  [2, 4, 6]
-];
 
 const checkWin = (currentClass) =>{
   /* array.some returns true if any of the values in the loop is true */
@@ -63,13 +60,13 @@ const checkWin = (currentClass) =>{
 
   squareArray.forEach(square => {
     $(square).on('click', clickOutcome);
-  })
+  });
 
   function clickOutcome(e) {
     const index = squareArray.indexOf(e.target);
 
     var element = e.target;
-  $(element).removeClass("playCards");
+    $(element).removeClass("playCards");
 
     if(currentPlayer === 'playerX') {
       $(squares[index]).addClass('playerX');
@@ -77,16 +74,15 @@ const checkWin = (currentClass) =>{
       $(squares[index]).addClass('playerO');
     }
 
-      let current_class =  $(squareArray[index]).hasClass(x_class) ? x_class : circle_class ;
-      if(checkWin(current_class))
-      {
-        endGame(false,currentPlayer);
-      }
-      else if (isDraw()) {
-    endGame(true)
-  }
-  currentPlayer = (current_class === x_class ? circle_class : x_class);
-  /* Here we are displaying the person who is about to make next move */
-  $('#player').text(`${currentPlayer}'s turn`);
+    let current_class =  $(squareArray[index]).hasClass(x_class) ? x_class : circle_class ;
+    if(checkWin(current_class)) {
+      endGame(false,currentPlayer);
+    }
+    else if (isDraw()) {
+      endGame(true)
+    }
+    currentPlayer = (current_class === x_class ? circle_class : x_class);
+    /* Here we are displaying the person who is about to make next move */
+    $('#player').text(`${currentPlayer}'s turn`);
     }
 });
