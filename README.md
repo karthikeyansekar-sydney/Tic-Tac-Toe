@@ -20,7 +20,7 @@ Tic-Tac-Toe
 This is a simple game of tic tac toe that I have created with my javascript/jquery skills. Here I have created a tic-tac-toe game where two players can play against each other with a more appealing UserInterface and catchy CSS effects.
 
 ## Screenshots
-![Game screenshot](images/jokerr.png)
+![Game screenshot](images/game_screenshot.png)
 
 ## Technologies
 [jQuery JavaScript Library v3.5.1 ](https://jquery.com/)
