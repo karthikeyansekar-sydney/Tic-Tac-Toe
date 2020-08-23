@@ -39,7 +39,7 @@ This is a simple game of tic tac toe that I have created with my javascript/jque
 
 
 ## CodeExamples
-<h5>Sample Javascript code:</h5>
+```js code
 
 const resetGame = () => {
   squares.forEach(square => {
@@ -90,6 +90,7 @@ const checkWin = (currentClass) =>{
     })
   })
 };
+```
 ## Features
 List of features ready:
 * Two Player Game Option
